@@ -4,6 +4,7 @@ on:
     branches:
       - 'main'
       - 'workflow/test'
+      - 'test'
 jobs:
   BuildSimulation:
     # TODO abort this workflow if the git user triggered it is not the release manager
