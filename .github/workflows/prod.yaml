@@ -4,6 +4,7 @@ on:
     branches:
       - 'main'
       - 'workflow/test'
+      - 'TestNew'
 jobs:
   BuildSimulation:
     # TODO abort this workflow if the git user triggered it is not the release manager
@@ -26,6 +27,6 @@ jobs:
     steps:
       - name: Check if user is release manager
         run: |
-          if [ "${{ github.actor }}" != "Ofri3" ]; then
+          if [ "${{ github.actor }}" != "denisber1984444" ]; then
             echo "User is not the release manager. Aborting workflow."
           fi
