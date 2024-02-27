@@ -213,5 +213,3 @@ bash merge_repos.sh
 ```
 
 # Gook Luck
-
-
