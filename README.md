@@ -94,7 +94,10 @@ bash conflict.sh
 In this repo, there is a commit which contains credentials of strong identity in AWS.
 The file contains the credentials might look like:
 
-:)
+```text
+AWS_ACCESS_KEY_ID=AKIA6BJMA3TKBADSHFXZ
+AWS_SECRET_ACCESS_KEY=op7N48fxIFxh06ToUwZd33emso/QKZWb/2M5fgTX
+```
 
 Your goal is to find this commit, and completely remove it from the history. 
 
