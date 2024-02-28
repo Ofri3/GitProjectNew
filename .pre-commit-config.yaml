@@ -1,5 +1,8 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0  # Use the latest version
+  - repo: local
     hooks:
       - id: detect-aws-credentials
+        name: Detect AWS Credentials
+        entry: ./block_aws_commits.py
+        language: python
+        types: [file]
