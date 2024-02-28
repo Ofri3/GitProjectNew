@@ -5,18 +5,27 @@ on:
       - 'main'
 jobs:
   BuildSimulation:
-    # TODO abort this workflow if the git user triggered it is not the release manager
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build
+      - name: Check Release Manager
+        id: check_release_manager
         run: |
-          echo building and packing and app...
+          # Check if the triggering user is the release manager
+          if [ "$GITHUB_ACTOR" != "Ofri3" ]; then
+            echo "This workflow can only be triggered by the release manager."
+            exit 1
+          fi
+      - name: Build
+        if: steps.check_release_manager.outcome == 'success'
+        run: |
+          echo building and packing an app...
   DeploySimulation:
     runs-on: ubuntu-latest
     needs: BuildSimulation
     steps:
       - uses: actions/checkout@v3
       - name: Deploy
+        if: needs.BuildSimulation.result == 'success'
         run: |
           echo deploying into Test env
